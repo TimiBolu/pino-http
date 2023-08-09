@@ -39,7 +39,7 @@ export interface Options extends pino.LoggerOptions {
     wrapSerializers?: boolean | undefined;
     customProps?: ((req: IncomingMessage, res: ServerResponse) => object) | undefined;
     quietReqLogger?: boolean | undefined;
-    captureLogResponseCallback?: (...args: any[]) => void;
+    captureLogResponseCallback?: (args: any) => void;
 }
 
 export interface GenReqId {
