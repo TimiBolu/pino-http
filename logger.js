@@ -191,6 +191,7 @@ function pinoLogger (opts, stream) {
           const receivedObjectResult = onRequestReceivedObject !== undefined ? onRequestReceivedObject(req, res, undefined) : {}
           const receivedStringResult = receivedMessage !== undefined ? receivedMessage(req, res) : undefined
 
+          process.nextTick(async () => await opts.captureLogResponseCallback(receivedObjectResult));
           requestLogger[level](receivedObjectResult, receivedStringResult)
         }
 
